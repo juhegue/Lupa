@@ -6,3 +6,4 @@
 https://www.java.com/es/download/
 
 
+####Nota: Pulsar boton derecho para menu de opciones

@@ -14,7 +14,7 @@ public class LupaWindow extends JFrame {
 	private JPopupMenu popupMenu = new JPopupMenu();
 	private JMenuItem menuRefresh = new JMenuItem("Refrescar");
 	private JMenuItem menuHide = new JMenuItem("Ocultar");
-	private JMenuItem menuConfig = new JMenuItem("Configuración");
+	private JMenuItem menuConfig = new JMenuItem("ConfiguraciÃ³n");
 	private JMenuItem menuAbout = new JMenuItem("Acerca de");
 	private JMenuItem menuExit = new JMenuItem("Salir");
 	private TimeUpdate timeUpdate = new TimeUpdate();
@@ -79,7 +79,7 @@ public class LupaWindow extends JFrame {
 	    menuAbout.addActionListener(
 	    	      new ActionListener(){
 	    	        public void actionPerformed(ActionEvent e){
-	    	          JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (Coín, Málaga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
+	    	          JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (CoÃ­n, MÃ¡laga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
 	    	        }
 	    	      }
 	    	    );
@@ -176,15 +176,21 @@ public class LupaWindow extends JFrame {
 			if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2) {
 
 			}
+			if (e.getButton() == MouseEvent.BUTTON3) {
+				botonDerecho(e);
+			}
 		}
 
 		public void mouseReleased(MouseEvent e) {
 			mousePressedNow = false;
 			saveFile();
 			if (e.isPopupTrigger()) {
-				lupaStopped = true;
-				popupMenu.show(e.getComponent(), e.getX(), e.getY());
+				botonDerecho(e);
 			}
+		}
+		private void botonDerecho(MouseEvent e) {
+			lupaStopped = true;
+			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 	}
 

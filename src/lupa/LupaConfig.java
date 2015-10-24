@@ -4,7 +4,8 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 import java.awt.Dialog;
-import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import layout.*;
 
@@ -18,13 +19,16 @@ public class LupaConfig {
 	private JLabel lbl2;
 	private JLabel lbl3;
 	private JLabel lbl4;
+	private JLabel lbl5;
 	
 	private JSpinner spinner1;
 	private JSpinner spinner2;
 	private JSpinner spinner3;
 	private JSpinner spinner4;
 	
-	private JDialog dialogo;
+	private JButton boton;
+	
+	private JDialog dialogo ;
 
 	public LupaConfig(JFrame jframe, int screenWidth, int screenHeight, int lancho, int lalto, int lamplia, int lrefresco)
 	{
@@ -35,8 +39,9 @@ public class LupaConfig {
 		
 		lbl1 = new JLabel("Ancho", JLabel.CENTER);  
 		lbl2 = new JLabel("Alto", JLabel.CENTER);
-		lbl3 = new JLabel("Ampliación", JLabel.CENTER);  
+		lbl3 = new JLabel("AmpliaciÃ³n", JLabel.CENTER);  
 		lbl4 = new JLabel("Refresco", JLabel.CENTER);  
+		lbl5 = new JLabel("", JLabel.CENTER);
 		
 		SpinnerModel model1 = new SpinnerNumberModel(lancho, 100, screenWidth, 10);
 		spinner1 = new JSpinner(model1);
@@ -78,10 +83,13 @@ public class LupaConfig {
 			}
 		
 		});
-
+		
+		boton = new JButton("Aceptar");
+		boton.addActionListener(new ButtonListener());
+		
 		dialogo = new JDialog(jframe, Dialog.ModalityType.DOCUMENT_MODAL);
 		dialogo.setLocationRelativeTo(jframe);
-		dialogo.setTitle("Configuración");
+		dialogo.setTitle("ConfiguraciÃ³n");
 		JPanel panel = new JPanel(new SpringLayout());
 		
 		panel.add(lbl1);
@@ -92,9 +100,11 @@ public class LupaConfig {
 		panel.add(spinner3);
 		panel.add(lbl4);
 		panel.add(spinner4);
+		panel.add(lbl5);
+		panel.add(boton);
 		
 		SpringUtilities.makeCompactGrid(panel,
-		                                4, 2, 			//rows, cols
+		                                5, 2, 			//rows, cols
 		                                15, 15,        	//initX, initY
 		                                15, 15);       	//xPad, yPad		
 		
@@ -102,5 +112,14 @@ public class LupaConfig {
 		dialogo.pack();
 		dialogo.setVisible(true);
 		dialogo.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+	}
+
+	class ButtonListener implements ActionListener {
+		ButtonListener() {
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			dialogo.dispose();
+		}
 	}
 }

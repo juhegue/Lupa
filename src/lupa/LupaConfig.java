@@ -39,7 +39,7 @@ public class LupaConfig {
 		
 		lbl1 = new JLabel("Ancho", JLabel.CENTER);  
 		lbl2 = new JLabel("Alto", JLabel.CENTER);
-		lbl3 = new JLabel("Ampliación", JLabel.CENTER);  
+		lbl3 = new JLabel("Ampliaci\u00f3n", JLabel.CENTER);  
 		lbl4 = new JLabel("Refresco", JLabel.CENTER);  
 		lbl5 = new JLabel("", JLabel.CENTER);
 		
@@ -89,7 +89,7 @@ public class LupaConfig {
 		
 		dialogo = new JDialog(jframe, Dialog.ModalityType.DOCUMENT_MODAL);
 		dialogo.setLocationRelativeTo(jframe);
-		dialogo.setTitle("Configuración");
+		dialogo.setTitle("Configuraci\u00f3n");
 		JPanel panel = new JPanel(new SpringLayout());
 		
 		panel.add(lbl1);

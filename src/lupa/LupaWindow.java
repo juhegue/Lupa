@@ -14,7 +14,7 @@ public class LupaWindow extends JFrame {
 	private JPopupMenu popupMenu = new JPopupMenu();
 	private JMenuItem menuRefresh = new JMenuItem("Refrescar");
 	private JMenuItem menuHide = new JMenuItem("Ocultar");
-	private JMenuItem menuConfig = new JMenuItem("Configuración");
+	private JMenuItem menuConfig = new JMenuItem("Configuraci\u00f3n");
 	private JMenuItem menuAbout = new JMenuItem("Acerca de");
 	private JMenuItem menuExit = new JMenuItem("Salir");
 	private TimeUpdate timeUpdate = new TimeUpdate();
@@ -79,7 +79,7 @@ public class LupaWindow extends JFrame {
 	    menuAbout.addActionListener(
 	    	      new ActionListener(){
 	    	        public void actionPerformed(ActionEvent e){
-	    	          JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (Coín, Málaga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
+	    	          JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (Co\u00edn, M\u00e1laga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
 	    	        }
 	    	      }
 	    	    );

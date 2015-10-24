@@ -150,13 +150,13 @@ public class LupaWindow extends JFrame {
 		public void run() {
 			while (true) {
 				if (lupaStopped == false) {
-					lupaPanel.setVisible(false);
+					setVisible(false);
 					try {
 						Thread.sleep(updateScreenDelay);
 					} catch (InterruptedException e) {
 					}
 					lupaPanel.getScreen();
-					lupaPanel.setVisible(true);
+					setVisible(true);
 				}				
 				try {
 					Thread.sleep(lupaRefresco);

@@ -79,7 +79,9 @@ public class LupaWindow extends JFrame {
 	    menuAbout.addActionListener(
 	    	      new ActionListener(){
 	    	        public void actionPerformed(ActionEvent e){
-	    	          JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (Co\u00edn, M\u00e1laga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
+	    	        	setVisible(false);
+	    	        	JOptionPane.showMessageDialog(null,"Lupa v0.1\nJuan Hevilla\n23/10/2015 (Co\u00edn, M\u00e1laga) ","Acerca de", JOptionPane.INFORMATION_MESSAGE);
+	    	        	setVisible(true);
 	    	        }
 	    	      }
 	    	    );

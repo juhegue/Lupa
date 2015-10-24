@@ -1,9 +1,8 @@
 # Lupa
-####(Amplia porción de la pantalla)
+####Amplia porción de la pantalla
 
 
 ####Requiere instalar java
-https://www.java.com/es/download/
 
 
-####Nota: Pulsar boton derecho para menu de opciones
+####Nota: Pulsar botón derecho para menú de opciones

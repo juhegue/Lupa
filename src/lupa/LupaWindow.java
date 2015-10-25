@@ -2,7 +2,6 @@ package lupa;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -233,7 +232,7 @@ public class LupaWindow extends JFrame {
 		configData.lupaAmpliacion = lupaAmpliacion;
 		configData.lupaRefresco = lupaRefresco;
 		try {
-			out = new ObjectOutputStream(new FileOutputStream("lupa.cfg"));
+			out = new ObjectOutputStream(new FileOutputStream(fileConfig()));
 			out.writeObject(configData);
 			out.flush();
 			out.close();
@@ -244,7 +243,7 @@ public class LupaWindow extends JFrame {
 	public void openFile() {
 		ObjectInputStream in;
 		try {
-			in = new ObjectInputStream(new FileInputStream("lupa.cfg"));
+			in = new ObjectInputStream(new FileInputStream(fileConfig()));
 			try {
 				configData = (ConfigData) in.readObject();
 				setCoordinateX = configData.lupaXCoordinate;
@@ -258,6 +257,8 @@ public class LupaWindow extends JFrame {
 				updateSize(lupaAncho, lupaAlto);
 				updateAmpliacion(lupaAmpliacion);
 				
+				lupaPanel.setlupaLocation(setCoordinateX, setCoordinateY, 0, 0);
+				setLocation(setCoordinateX, setCoordinateY);				
 			} catch (ClassNotFoundException e) {
 			} catch (IOException e) {
 			}
@@ -265,6 +266,31 @@ public class LupaWindow extends JFrame {
 		} catch (IOException e) {
 		}
 	}
+	
+	private static String fileConfig()
+	{
+	    String OS = System.getProperty("os.name").toUpperCase();
+	    String path;
+	    
+	    if (OS.contains("WIN"))
+	        path = System.getenv("APPDATA");
+	    else if (OS.contains("MAC"))
+	        path = System.getProperty("user.home") + "/Library/Application Support";
+	    else if (OS.contains("NUX"))
+	        path = System.getProperty("user.home");
+	    else
+	    	path = System.getProperty("user.dir");
+	    path += "/.lupa";
+	    
+	    try {
+		    File f = null;
+	    	f = new File(path);
+	    	f.mkdir();
+	    }catch(Exception e){
+	    }
+	    
+	    return path + "/lupa.cfg";
+	}	
 }
 
 class ConfigData implements Serializable {

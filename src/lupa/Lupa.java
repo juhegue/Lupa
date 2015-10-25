@@ -7,7 +7,6 @@ package lupa;
 
 import java.awt.Font;
 import java.util.Enumeration;
-
 import javax.swing.UIManager;
 
 public class Lupa {
@@ -23,9 +22,7 @@ public class Lupa {
 	}
 
 	public static void main(String arg[]) {
-
 		setUIFont(new javax.swing.plaf.FontUIResource("default", Font.BOLD, 24));
-
 		new LupaWindow("Lupa");
 	}
 }

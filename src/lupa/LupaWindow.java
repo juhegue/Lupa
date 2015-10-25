@@ -33,7 +33,7 @@ public class LupaWindow extends JFrame {
 	private int lupaAlto = 400;
 	private int lupaAmpliacion = 50;
 	private int lupaRefresco = 0;
-	private int updateScreenDelay = 50;
+	private int updateScreenDelay = 500;
 	private LupaPanel lupaPanel = new LupaPanel(lupaAncho, lupaAlto);
 
 	public LupaWindow(String windowTitle) {
